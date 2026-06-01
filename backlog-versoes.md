@@ -1,3 +1,27 @@
+## v1.1 — 2026-06-01
+
+**Tipo de alteração:** Atualização
+**Autorizado por:** victorarimatea
+**Impacto:** non-breaking
+**Skills afetadas:** nenhuma (melhoria interna de padrão de execução)
+**Exposição de motivos:** Incorporação do Erro #003 identificado na mesma
+sessão de criação da skill: chamadas à API GitHub via curl com heredoc bash
+falharam com caracteres especiais no conteúdo. A correção define Python urllib
+como padrão obrigatório para todas as chamadas à API, com funções helper
+reutilizáveis (api_put e api_get) documentadas diretamente na Etapa 5.
+Este é o primeiro ciclo completo de aprendizado contínuo da skill — erro
+identificado, corrigido e registrado na mesma sessão, conforme a Regra 2
+do CONTEXTO.md do M01.
+
+### Alterações realizadas
+- `SKILL.md` → v1.1:
+  - Etapa 5: adição de seção "Padrão obrigatório para chamadas à API GitHub"
+    com funções Python helper (api_put, api_get) e justificativa
+  - Seção "Registro de Erros Aprendidos": adição do Erro #003 com causa,
+    problema e correção incorporada
+
+---
+
 # Backlog de Versões — skill-github-orquestracao
 
 ---
