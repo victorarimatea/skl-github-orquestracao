@@ -1,6 +1,6 @@
 # skill-github-orquestracao
 
-**Versão:** v1.0 — 2026-06-01
+**Versão:** v1.1 — 2026-06-01
 **Repositório:** https://github.com/victorarimatea/skill-github-orquestracao
 **Mantenedor:** victorarimatea
 
@@ -275,6 +275,57 @@ Para cada arquivo:
 - Em caso de erro em qualquer passo: parar, informar, aguardar instrução
 - Nunca tentar "adivinhar" um SHA — sempre ler da API
 
+
+**Padrão obrigatório para chamadas à API GitHub:**
+
+Toda chamada à API do GitHub deve ser feita via **Python urllib** (ou requests),
+nunca via `curl` com heredoc ou interpolação de variáveis bash. A razão é que
+curl com heredoc falha silenciosamente quando o conteúdo contém caracteres
+especiais (acentos, travessões, aspas), gerando erro de JSON inválido na API.
+
+Padrão correto:
+
+```python
+import json, base64, urllib.request
+
+def api_put(token, user, repo, path, message, content_str, sha):
+    content_b64 = base64.b64encode(content_str.encode('utf-8')).decode('utf-8')
+    payload = json.dumps({
+        "message": message,
+        "content": content_b64,
+        "sha": sha
+    }).encode('utf-8')
+    req = urllib.request.Request(
+        f"https://api.github.com/repos/{user}/{repo}/contents/{path}",
+        data=payload, method='PUT',
+        headers={
+            "Authorization": f"token {token}",
+            "Content-Type": "application/json"
+        }
+    )
+    try:
+        with urllib.request.urlopen(req) as resp:
+            d = json.load(resp)
+            print(f"  ✅ {path}")
+            return d
+    except urllib.error.HTTPError as e:
+        body = json.load(e)
+        print(f"  ❌ {path} — {body.get('message','erro')}")
+        return None
+
+def api_get(token, user, repo, path):
+    req = urllib.request.Request(
+        f"https://api.github.com/repos/{user}/{repo}/contents/{path}",
+        headers={"Authorization": f"token {token}"}
+    )
+    with urllib.request.urlopen(req) as resp:
+        d = json.load(resp)
+        return d['sha'], base64.b64decode(d['content']).decode('utf-8')
+```
+
+Esta abordagem garante serialização JSON correta independentemente do conteúdo,
+trata erros HTTP explicitamente e é portável entre ambientes.
+
 **Ordem recomendada de execução:**
 1. Repositórios de conteúdo (o que foi criado/alterado)
 2. ecossistema-sumario (M01) — matrizes de registro
@@ -349,6 +400,18 @@ desatualizados por uma sessão inteira.
 no mapeamento de impacto.
 **Correção incorporada:** README.md do dtd-setis está agora explícito na
 checklist OP-A e é verificado obrigatoriamente na Etapa 6 (Verificação 2).
+
+
+### Erro #003 — 2026-06-01
+**Problema:** Chamadas à API GitHub via `curl` com heredoc bash falharam com
+erro "does not match" (HTTP 422) quando o conteúdo dos arquivos continha
+caracteres especiais — acentos, travessões, aspas tipográficas. O bash
+interpola variáveis e não serializa JSON corretamente com esses caracteres.
+**Causa:** Uso de `curl -d "{...}"` com conteúdo gerado por substituição
+de variáveis bash. O JSON resultante continha caracteres de controle inválidos.
+**Correção incorporada:** Toda chamada à API GitHub usa obrigatoriamente
+Python urllib com `json.dumps()` para serialização — nunca curl com heredoc.
+Ver padrão de código na Etapa 5 deste SKILL.md.
 
 ### Erro #002 — histórico anterior a 2026-06-01
 **Problema:** Drift de versões — sumário e CONTEXTO.md indicavam versão
