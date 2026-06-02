@@ -1,6 +1,6 @@
 # skill-github-orquestracao
 
-**Versão:** v1.2 — 2026-06-01
+**Versão:** v1.3 — 2026-06-01
 **Repositório:** https://github.com/victorarimatea/skill-github-orquestracao
 **Mantenedor:** victorarimatea
 
@@ -101,6 +101,8 @@ operação específica exigir.
 
 **No repositório criado:**
 - [ ] `README.md` com ficha técnica (tipo, versão, mantenedor, status)
+- [ ] `INDICE.md` com tabela de todos os arquivos criados (obrigatório em
+  todos os repositórios, sem exceção — ver Seção 10 da nomenclatura.md)
 - [ ] `backlog-versoes.md` com entrada v1.0 e exposição de motivos
 - [ ] `SKILL.md` (apenas tipo S)
 - [ ] `stakeholders.md` (apenas tipo P)
@@ -166,10 +168,20 @@ operação específica exigir.
 
 **No arquivo corrigido:**
 - [ ] Correção aplicada
-- [ ] Versão incrementada apenas se o erro comprometia a integridade
+- [ ] Versão incrementada (MINOR) se o erro comprometia legibilidade,
+  rastreabilidade ou consistência do ecossistema; não incrementar para
+  typos isolados que não afetam o funcionamento
 
 **No repositório onde ocorreu:**
-- [ ] `backlog-versoes.md` — entrada apenas se a versão foi incrementada
+- [ ] `backlog-versoes.md` — entrada obrigatória se a versão foi incrementada
+- [ ] `CHANGELOG.md` do `dtd-setis` — entrada se a correção for relevante
+  para o histórico público (omitir para typos menores sem impacto funcional)
+
+**Critério objetivo de incremento de versão em OP-E:**
+- **Incrementar:** erro em instrução operacional, link quebrado, nome de arquivo
+  errado, versão incorreta registrada, padrão violado
+- **Não incrementar:** typo em texto descritivo, ajuste de formatação menor,
+  correção ortográfica sem impacto no significado
 
 ### OP-F — Atualização de planejamento
 
@@ -188,6 +200,7 @@ operação específica exigir.
 
 **No repositório do projeto:**
 - [ ] Arquivo alterado com conteúdo atualizado
+- [ ] `INDICE.md` — atualizado se novo arquivo ou pasta foi criado
 - [ ] `backlog-versoes.md` — nova entrada registrando a decisão/alteração
 - [ ] `stakeholders.md` — atualizado se houve mudança de participantes
 - [ ] `README.md` — status e deliberações pendentes atualizados se necessário
@@ -353,6 +366,10 @@ Nunca concluir "backlog vazio" sem verificar os dois padrões.
 Falso positivo de "sem entradas" gerou diagnóstico incorreto em 2026-06-01
 (ver Erro #004).
 
+Ao auditar presença de `INDICE.md` nos repositórios, verificar tanto
+na raiz quanto via `git/trees` recursivo — o arquivo pode estar presente
+mas não aparecer em listagens superficiais.
+
 **Verificação 2 — README do dtd-setis:**
 Confirmar que o diagrama ASCII e a tabela de repositórios refletem
 o estado atual. Este arquivo foi o problema identificado em
@@ -421,6 +438,18 @@ de variáveis bash. O JSON resultante continha caracteres de controle inválidos
 **Correção incorporada:** Toda chamada à API GitHub usa obrigatoriamente
 Python urllib com `json.dumps()` para serialização — nunca curl com heredoc.
 Ver padrão de código na Etapa 5 deste SKILL.md.
+
+### Erro #005 — 2026-06-01
+**Problema:** Script de auditoria da Etapa 6 buscava "backlog" e "changelog"
+nos primeiros 600 caracteres de cada seção OP-X da S04. As checklists
+ficam depois desse limite, fazendo todos os tipos retornarem falso negativo
+de "sem instrução de backlog/changelog". A auditoria indicou cobertura zero
+quando a cobertura real era de 7/7 para backlog e 6/7 para changelog.
+**Causa:** Janela de busca de texto insuficiente — restrita ao cabeçalho
+da seção, não ao corpo completo.
+**Correção incorporada:** Usar regex com `re.DOTALL` para capturar cada
+seção OP-X completa antes de verificar presença de termos. Ver padrão
+de auditoria corrigido na Etapa 6.
 
 ### Erro #004 — 2026-06-01
 **Problema:** Script de auditoria de backlogs usava `'## v'` como padrão
