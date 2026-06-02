@@ -1,3 +1,26 @@
+## v1.8 — 2026-06-02
+
+**Tipo de alteração:** Atualização
+**Autorizado por:** victorarimatea
+**Impacto:** non-breaking
+**Exposição de motivos:** Correção da causa raiz dos drifts identificados em
+auditoria externa. A S04 não cobria CONTEXTO.md em OP-C, não cobria ROADMAP.md
+e arquitetura.md em OP-W e OP-AG, e não tinha verificação de consistência
+cruzada entre os 5 arquivos de referência central. Resultado: arquivos
+acumularam drift ao longo de sessões intensas de implementação. Blindagem
+estrutural completa adicionada nesta versão.
+
+### Alterações realizadas
+- `SKILL.md` → v1.8:
+  - OP-C: CONTEXTO.md na checklist (versão deve bater com sumario.md)
+  - OP-W: ROADMAP.md e arquitetura.md nas checklists
+  - OP-AG: ROADMAP.md na checklist
+  - Etapa 6: Verificação 5 — consistência cruzada obrigatória entre
+    sumario.md × CONTEXTO.md × README.md × ROADMAP.md × arquitetura.md
+  - Erro #007: causa raiz dos drifts documentada e corrigida
+
+---
+
 ## v1.7 — 2026-06-02
 
 **Tipo de alteração:** Atualização
