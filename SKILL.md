@@ -1,6 +1,6 @@
 # skill-github-orquestracao
 
-**Versão:** v1.7 — 2026-06-02
+**Versão:** v1.8 — 2026-06-02
 **Repositório:** https://github.com/victorarimatea/skill-github-orquestracao
 **Mantenedor:** victorarimatea
 
@@ -150,6 +150,8 @@ operação específica exigir.
 - [ ] Arquivo alterado com versão incrementada no cabeçalho
 - [ ] `INDICE.md` — atualizado se a operação criou ou removeu arquivo na matriz
 - [ ] `backlog-versoes.md` — nova entrada com tópico afetado, fonte, proposto por
+- [ ] `CONTEXTO.md` — versão do repositório alterado atualizada na tabela de
+  repositórios ativos (a versão no CONTEXTO deve bater com o sumario.md)
 
 **No ecossistema-sumario (M01) — se a matriz alterada NÃO for o próprio M01:**
 - [ ] `sumario.md` — versão da matriz atualizada
@@ -397,6 +399,31 @@ confirmar que os caminhos estão corretos.
 Se qualquer verificação falhar: corrigir imediatamente, ainda com
 o token ativo, antes de informar conclusão ao usuário.
 
+**Verificação 5 — Consistência cruzada dos arquivos de referência central:**
+Após qualquer operação que crie repositório, altere tipo ou versão, verificar
+que os 5 arquivos centrais estão sincronizados entre si:
+
+```python
+# Checklist de consistência cruzada (executar mentalmente ou via script)
+# 1. sumario.md registra o repositório/versão correta?
+# 2. CONTEXTO.md tem a mesma versão que o sumario.md para cada ID?
+# 3. README.md do dtd-setis lista o repositório na tabela?
+# 4. ROADMAP.md reflete o status real (concluído/em curso/próximo)?
+# 5. docs/arquitetura.md descreve os tipos e relações atuais?
+```
+
+**Quando esta verificação é obrigatória:**
+- Após qualquer OP-A (criação de repositório)
+- Após qualquer OP-B ou OP-C que mude versão de componente
+- Após qualquer OP-W ou OP-AG que mude status de workflow/agenda
+
+**Se encontrar divergência:** corrigir imediatamente antes do relatório final,
+ainda com o token ativo. Registrar como item de correção no relatório.
+
+**Nota:** versões no CONTEXTO.md devem sempre bater com o sumario.md.
+O sumario.md é a fonte de verdade — CONTEXTO.md é derivado dele.
+
+
 **Verificação 4 — Glossário:**
 Varrer todos os arquivos criados ou alterados na operação em busca de
 termos técnicos novos que possam não estar definidos no `GLOSSARIO.md`
@@ -481,6 +508,10 @@ Token pode ser revogado: https://github.com/settings/tokens
 
 **No dtd-setis:**
 - [ ] `CHANGELOG.md` — entrada se a mudança for relevante para o histórico público
+- [ ] `ROADMAP.md` — atualizar se o workflow mudou de status (rascunho→ativo,
+  ativo→suspenso, etc.) ou se novo workflow foi criado
+- [ ] `docs/arquitetura.md` — atualizar se foi criado novo tipo de repositório
+  ou se a estrutura de relações entre tipos mudou
 
 
 ### OP-AG — Atualização de agenda
@@ -496,6 +527,9 @@ Token pode ser revogado: https://github.com/settings/tokens
 
 **No projeto associado (tipo P), se houver:**
 - [ ] `EXECUCOES.md` — linha adicionada referenciando o arquivo no repositório A
+
+**No dtd-setis:**
+- [ ] `ROADMAP.md` — atualizar se tipo A ganhou nova funcionalidade relevante
 
 **Atenção: indexação cronológica**
 O INDICE.md do tipo A é ordenado por `data_reuniao`. Ao inserir um registro
@@ -530,6 +564,21 @@ de variáveis bash. O JSON resultante continha caracteres de controle inválidos
 **Correção incorporada:** Toda chamada à API GitHub usa obrigatoriamente
 Python urllib com `json.dumps()` para serialização — nunca curl com heredoc.
 Ver padrão de código na Etapa 5 deste SKILL.md.
+
+### Erro #007 — 2026-06-02
+**Problema:** Após duas sessões intensas de implementação (criação de tipos W e A,
+migração do Cowork, S06, W02, A01), auditoria externa identificou drifts em
+CONTEXTO.md (versões M01 e S04 desatualizadas), docs/arquitetura.md (não descrevia
+tipos W e A), ROADMAP.md (tratava entregáveis como futuros), dtd-setis/INDICE.md
+(contagem e data antigas) e dtd-setis/backlog-versoes.md (parado em v1.0).
+**Causa raiz:** A S04 não instruía atualização de CONTEXTO.md em OP-C; não
+instruía ROADMAP.md e arquitetura.md em OP-W e OP-AG; não tinha Verificação 5
+de consistência cruzada entre os 5 arquivos de referência central. Resultado:
+arquivos de referência central acumularam drift sistematicamente.
+**Correção incorporada:** OP-C recebe checklist de atualização do CONTEXTO.md;
+OP-W e OP-AG recebem ROADMAP.md e arquitetura.md nas checklists; Etapa 6
+recebe Verificação 5 de consistência cruzada obrigatória após OP-A, OP-B/C
+que mude versão, OP-W e OP-AG.
 
 ### Erro #006 — 2026-06-01
 **Problema:** Auditoria de cobertura de changelog no OP-P retornou falso
