@@ -1,3 +1,20 @@
+## v1.6 — 2026-06-02
+
+**Tipo de alteração:** Atualização
+**Autorizado por:** victorarimatea
+**Impacto:** non-breaking
+**Exposição de motivos:** Implementação do tipo W no ecossistema. A S04 passa
+a cobrir operações em repositórios de workflow com o novo tipo OP-W, incluindo
+a criação obrigatória de log de execução em sessões autenticadas. A checklist
+OP-P recebe o item EXECUCOES.md para garantir que projetos registrem referências
+aos workflows acionados em seu contexto.
+
+### Alterações realizadas
+- `SKILL.md` → v1.6: OP-W adicionado com checklist completa incluindo log de
+  execução; tabela de tipos atualizada; EXECUCOES.md na checklist OP-P
+
+---
+
 ## v1.5 — 2026-06-01
 
 **Tipo de alteração:** Atualização
