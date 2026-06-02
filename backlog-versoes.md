@@ -1,3 +1,22 @@
+## v1.4 — 2026-06-01
+
+**Tipo de alteração:** Atualização
+**Autorizado por:** victorarimatea
+**Impacto:** non-breaking
+**Skills afetadas:** nenhuma
+**Exposição de motivos:** Quarto ciclo de aprendizado contínuo da sessão.
+Cobertura de INDICE.md expandida para OP-B, OP-C, OP-D, OP-E e OP-F com
+instrução condicional (atualizar quando a operação criar ou remover arquivo).
+Erro #006 incorporado: reincidência do padrão de auditoria com busca em
+trecho limitado — corrigido com instrução de uso de regex re.DOTALL completa.
+
+### Alterações realizadas
+- `SKILL.md` → v1.4:
+  - OP-B, OP-C, OP-D, OP-E, OP-F: INDICE.md com instrução condicional
+  - Seção Erros: Erro #006 registrado com causa e correção
+
+---
+
 ## v1.3 — 2026-06-01
 
 **Tipo de alteração:** Atualização
