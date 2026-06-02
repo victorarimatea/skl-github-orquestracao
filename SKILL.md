@@ -1,6 +1,6 @@
 # skill-github-orquestracao
 
-**Versão:** v1.1 — 2026-06-01
+**Versão:** v1.2 — 2026-06-01
 **Repositório:** https://github.com/victorarimatea/skill-github-orquestracao
 **Mantenedor:** victorarimatea
 
@@ -344,6 +344,15 @@ Após todas as alterações, execute verificação de consistência:
 Reler `sumario.md` e confirmar que as versões registradas batem
 com os cabeçalhos dos arquivos alterados.
 
+Ao varrer entradas em arquivos `backlog-versoes.md`, aceitar **ambos**
+os padrões de cabeçalho de entrada:
+- `## vX.Y` — padrão usado pela maioria dos repositórios
+- `### vX.Y` — padrão usado por repositórios de taxonomia (ex: M02)
+
+Nunca concluir "backlog vazio" sem verificar os dois padrões.
+Falso positivo de "sem entradas" gerou diagnóstico incorreto em 2026-06-01
+(ver Erro #004).
+
 **Verificação 2 — README do dtd-setis:**
 Confirmar que o diagrama ASCII e a tabela de repositórios refletem
 o estado atual. Este arquivo foi o problema identificado em
@@ -412,6 +421,19 @@ de variáveis bash. O JSON resultante continha caracteres de controle inválidos
 **Correção incorporada:** Toda chamada à API GitHub usa obrigatoriamente
 Python urllib com `json.dumps()` para serialização — nunca curl com heredoc.
 Ver padrão de código na Etapa 5 deste SKILL.md.
+
+### Erro #004 — 2026-06-01
+**Problema:** Script de auditoria de backlogs usava `'## v'` como padrão
+exclusivo de busca de entradas. O repositório `saude-digital-taxonomia` (M02)
+usa `'### v'` como cabeçalho de entrada — nível de subseção em vez de seção.
+Isso gerou falso positivo de "backlog vazio" no M02, que entrou no diagnóstico
+de maturidade como Item 5 ("entrada v1.0 incompleta") e só foi descartado após
+leitura manual detalhada do arquivo.
+**Causa:** Padrão de busca restrito a um único formato de cabeçalho Markdown,
+sem considerar variações válidas entre repositórios.
+**Correção incorporada:** A Verificação 1 da Etapa 6 agora instrui
+explicitamente a aceitar `## v` e `### v` como padrões válidos de entrada.
+Nunca concluir "backlog vazio" sem verificar os dois padrões.
 
 ### Erro #002 — histórico anterior a 2026-06-01
 **Problema:** Drift de versões — sumário e CONTEXTO.md indicavam versão
