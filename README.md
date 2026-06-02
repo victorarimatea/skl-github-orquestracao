@@ -65,3 +65,9 @@ da Secretaria de Estado de Saúde do Distrito Federal (SES-DF).
 
 Repositório âncora do ecossistema:
 https://github.com/victorarimatea/ecossistema-sumario
+
+---
+
+## Navegação rápida
+
+→ **[INDICE.md](./INDICE.md)** — mapa completo de todos os arquivos deste repositório
