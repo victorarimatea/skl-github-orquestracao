@@ -1,3 +1,24 @@
+## v1.3 — 2026-06-01
+
+**Tipo de alteração:** Atualização
+**Autorizado por:** victorarimatea
+**Impacto:** non-breaking
+**Skills afetadas:** nenhuma
+**Exposição de motivos:** Terceiro ciclo de aprendizado contínuo da sessão.
+OP-E clarificado com critério objetivo de incremento de versão e instrução
+de changelog. INDICE.md adicionado como item obrigatório nas checklists
+OP-A e OP-P. Erro #005 (janela de busca insuficiente) incorporado.
+
+### Alterações realizadas
+- `SKILL.md` → v1.3:
+  - OP-E: critério objetivo de incremento + instrução de changelog
+  - OP-A: INDICE.md na checklist
+  - OP-P: INDICE.md na checklist
+  - Etapa 6: instrução de auditoria de INDICE.md
+  - Seção Erros: Erro #005 registrado
+
+---
+
 ## v1.2 — 2026-06-01
 
 **Tipo de alteração:** Atualização
