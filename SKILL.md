@@ -1,6 +1,6 @@
 # skill-github-orquestracao
 
-**Versão:** v1.8 — 2026-06-02
+**Versão:** v1.9 — 2026-06-03
 **Repositório:** https://github.com/victorarimatea/skill-github-orquestracao
 **Mantenedor:** victorarimatea
 
@@ -220,7 +220,7 @@ operação específica exigir.
   deste projeto (referência ao log no repositório W — não duplicar conteúdo)
 - [ ] `backlog-versoes.md` — nova entrada registrando a decisão/alteração
 - [ ] `stakeholders.md` — atualizado se houve mudança de participantes
-- [ ] `README.md` — status e deliberações pendentes atualizados se necessário
+- [ ] `README.md` — versão atualizada no cabeçalho; estrutura de arquivos e link de navegação rápida atualizados se novo documento foi adicionado
 
 **No ecossistema-sumario (M01):**
 - [ ] `sumario.md` — status do projeto atualizado se mudou
@@ -540,6 +540,14 @@ não necessariamente ao final do arquivo.
 ---
 
 ## REGISTRO DE ERROS APRENDIDOS
+
+### Erro #008 — 2026-06-03
+**Problema:** A checklist OP-P não especificava que o README.md do repositório de projeto deve ter versão atualizada no cabeçalho e estrutura de arquivos/link de navegação rápida revisados quando um novo documento é adicionado. Isso gerou a necessidade de identificação manual do drift durante a sessão de 2026-06-03.
+**Causa raiz:** A checklist OP-P listava "README.md — status e deliberações pendentes atualizados se necessário", sem mencionar explicitamente a atualização de versão e a revisão da estrutura de arquivos.
+**Solução:** Checklist OP-P atualizada: o item do README.md agora especifica versão no cabeçalho + estrutura de arquivos + link de navegação rápida.
+**Aprendizado geral:** Ao adicionar qualquer arquivo a um repositório, sempre verificar se o README.md desse repositório precisa refletir a nova estrutura — não apenas status e deliberações.
+**Status:** Corrigido na v1.9
+
 
 Esta seção é atualizada a cada problema encontrado em operações reais.
 Cada erro vira uma verificação adicional no fluxo desta skill.
