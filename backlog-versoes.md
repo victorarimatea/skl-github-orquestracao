@@ -1,3 +1,22 @@
+## v2.3 — 2026-06-04
+
+**Tipo de alteração:** Atualização
+**Autorizado por:** victorarimatea
+**Impacto:** non-breaking
+**Skills afetadas:** nenhuma
+**Exposição de motivos:** A S04 não tinha instrução para capturar ideias embrionárias
+que surgem nas interlinhas das sessões. Boas ideias se perdiam sem mecanismo de resgate.
+Corrigido com a Etapa 6-A — mineração ativa de contexto antes do relatório final.
+
+### Alterações realizadas
+- Etapa 6-A adicionada entre Etapa 6 e Etapa 7: mineração ativa de ideias com
+  7 perguntas orientadoras de elegibilidade e procedimento de 6 passos
+  (varredura → triagem → apresentação → elaboração → depósito → relatório)
+- Template do relatório (Etapa 7) atualizado: campo "Mineração de ideias" adicionado
+- Erro #011 registrado na seção "Registro de Erros Aprendidos"
+
+---
+
 ## v2.2 — 2026-06-04
 
 **Tipo de alteração:** Atualização
