@@ -1,6 +1,6 @@
 # skill-github-orquestracao
 
-**Versão:** v2.1 — 2026-06-03
+**Versão:** v2.2 — 2026-06-04
 **Repositório:** https://github.com/victorarimatea/skl-github-orquestracao
 **Mantenedor:** victorarimatea
 
@@ -469,6 +469,25 @@ ainda com o token ativo. Registrar como item de correção no relatório.
 **Nota:** versões no CONTEXTO.md devem sempre bater com o sumario.md.
 O sumario.md é a fonte de verdade — CONTEXTO.md é derivado dele.
 
+**Verificação 5-A — Reconciliação obrigatória com o ROADMAP:**
+Ao final de toda operação, para cada entregável produzido nesta sessão,
+verificar no `ROADMAP.md` do `hub-entrada`:
+
+- **Se o entregável estava previsto no ROADMAP:** marcar como ✅ com a data
+  de conclusão. Exemplo: `- ✅ Criar repositório X (concluído 2026-06-04)`
+- **Se o entregável NÃO estava previsto no ROADMAP:** incluí-lo na seção
+  ✅ Concluído já marcado como concluído, com data. Nunca omitir — toda
+  implementação real deve aparecer no ROADMAP, prevista ou não.
+
+**Propósito:** o ROADMAP deve ser uma linha do tempo cronológica fiel de tudo
+que foi construído, não apenas do que foi planejado previamente. Itens não
+previstos no início são a norma em ecossistemas em evolução — o registro
+retroativo é o que garante rastreabilidade histórica completa.
+
+**Quando esta sub-verificação pode ser omitida:**
+Apenas em OP-E (correção pontual de typo/formatação) onde nenhum entregável
+novo foi criado. Em todos os demais tipos, é obrigatória.
+
 
 **Verificação 4 — Glossário:**
 Varrer todos os arquivos criados ou alterados na operação em busca de
@@ -586,6 +605,23 @@ não necessariamente ao final do arquivo.
 ---
 
 ## REGISTRO DE ERROS APRENDIDOS
+
+### Erro #010 — 2026-06-04
+**Problema:** O ROADMAP.md acumulava drift silencioso para entregáveis não previstos
+originalmente. A S04 só instruía atualizar o ROADMAP quando um item estava previsto
+(marcar ✅) — mas não tinha instrução para incluir itens implementados que nunca
+foram planejados no ROADMAP. Exemplo concreto: a S07 `skl-briefing-saude-digital`
+foi criada, entrou no `sumario.md`, mas nunca apareceu no ROADMAP.
+**Causa raiz:** A Verificação 5 checava se o ROADMAP "reflete o status real" de
+forma genérica, sem instrução operacional para o caso de entregáveis não previstos.
+O W03 (registro de sessão) também não tinha etapa de reconciliação com o ROADMAP.
+**Solução:** Verificação 5-A adicionada à Etapa 6: reconciliação obrigatória com
+o ROADMAP para todos os entregáveis da sessão — previstos (✅ com data) e não
+previstos (incluir já como ✅ com data). W03 recebe Etapa 2-A com a mesma lógica.
+**Aprendizado geral:** O ROADMAP deve ser uma linha do tempo cronológica fiel de
+tudo que foi construído — não apenas do que foi planejado. Itens emergentes são a
+norma em ecossistemas vivos; o registro retroativo é o que garante rastreabilidade.
+**Status:** Corrigido na v2.2
 
 ### Erro #008 — 2026-06-03
 **Problema:** A checklist OP-P não especificava que o README.md do repositório de projeto deve ter versão atualizada no cabeçalho e estrutura de arquivos/link de navegação rápida revisados quando um novo documento é adicionado. Isso gerou a necessidade de identificação manual do drift durante a sessão de 2026-06-03.
