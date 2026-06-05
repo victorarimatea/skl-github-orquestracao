@@ -1,3 +1,27 @@
+## v2.4.1 — 2026-06-05
+
+**Tipo de alteração:** Correção pontual (OP-E)
+**Autorizado por:** Victor Leonardo Arimatea Queiroz — Diretor de Transformação Digital
+**Impacto:** non-breaking
+**Skills afetadas:** nenhuma
+
+**Exposição de motivos:** Diagnóstico de inconsistência identificado na abertura
+de sessão de 2026-06-05. O cabeçalho do SKILL.md estava registrado como v2.1
+enquanto o backlog já acumulava v2.4. Investigação confirmou que o SKILL.md
+já continha o conteúdo correto de v2.4 (cabeçalho corrigido na operação v2.4
+de hoje), mas sumario.md registrava S04 em v2.1 e CONTEXTO.md em v2.3 — ambos
+desatualizados. Sincronização dos arquivos de referência realizada. Erro #013
+documentado no SKILL.md e no INDICE.md.
+
+### Alterações realizadas
+- `INDICE.md` → atualizado: versão do SKILL.md (v1.3→v2.4), data (2026-06-01→2026-06-05),
+  tabela de erros expandida de #005 para #013
+- `hub-fonte/sumario.md` → S04: v2.1 → v2.4
+- `hub-fonte/CONTEXTO.md` → S04: v2.3 → v2.4
+- `hub-fonte/backlog-versoes.md` → entrada de sincronização adicionada
+
+---
+
 ## v2.4 — 2026-06-05
 
 **Tipo de alteração:** Atualização
