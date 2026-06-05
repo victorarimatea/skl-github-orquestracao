@@ -1,3 +1,25 @@
+## v2.7 — 2026-06-05
+
+**Tipo de alteração:** Atualização
+**Autorizado por:** Victor Leonardo Arimatea Queiroz — Diretor de Transformação Digital
+**Impacto:** non-breaking
+**Skills afetadas:** nenhuma
+
+**Exposição de motivos:** Expansão da Etapa 6-A com segundo tipo de mineração:
+conhecimentos consolidados candidatos ao hub-aprendizagem. A Etapa 6-A existia
+apenas para ideias embrionárias (Seção C da staging). Com o hub-aprendizagem
+criado, faltava o mecanismo de captura de aprendizados estruturais — diferentes
+de ideias por já terem passado pelo crivo da prática. A expansão adiciona
+Intenção do Comandante, 5 critérios de elegibilidade, procedimento de 4 passos
+com redação imediata obrigatória e depósito na Seção E da staging.
+
+### Alterações realizadas
+- `SKILL.md` v2.6 → v2.7: Etapa 6-A expandida com sub-seção de conhecimento
+  consolidado — Intenção do Comandante, critérios, procedimento, regra de
+  redação imediata
+
+---
+
 ## v2.6 — 2026-06-05
 
 **Tipo de alteração:** Atualização estrutural
