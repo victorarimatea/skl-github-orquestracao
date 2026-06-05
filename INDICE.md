@@ -14,7 +14,7 @@
 
 | Arquivo | Descrição | Quando consultar |
 |---|---|---|
-| [`SKILL.md`](./SKILL.md) | Instruções completas v2.6: 7 etapas, 9 tipos de operação, checklists com CONFIRMAR embutido, padrão Python urllib, escala SEV1–SEV4, 13 erros classificados | Para qualquer operação que altere repositórios do ecossistema |
+| [`SKILL.md`](./SKILL.md) | Instruções completas v2.7: 7 etapas + 6-A expandida (ideias + conhecimento consolidado), checklists com CONFIRMAR, escala SEV1–SEV4, 13 erros classificados | Para qualquer operação que altere repositórios do ecossistema |
 | [`backlog-versoes.md`](./backlog-versoes.md) | Histórico de versões da skill com erros incorporados | Para rastrear evoluções e erros aprendidos |
 | [`README.md`](./README.md) | Apresentação pública do repositório | Para entender o propósito do S04 |
 | [`INDICE.md`](./INDICE.md) | Este arquivo | Para navegação rápida |
