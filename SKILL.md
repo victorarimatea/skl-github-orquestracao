@@ -1,6 +1,6 @@
 # skill-github-orquestracao
 
-**Versão:** v2.4 — 2026-06-05
+**Versão:** v2.5 — 2026-06-05
 **Repositório:** https://github.com/victorarimatea/skl-github-orquestracao
 **Mantenedor:** victorarimatea
 
@@ -730,9 +730,30 @@ não necessariamente ao final do arquivo.
 
 ---
 
+## ESCALA DE SEVERIDADE DE ERROS
+
+Todo erro registrado nesta skill recebe uma classificação de severidade
+baseada no padrão SEV (ITIL / ISO 20000), adaptado ao contexto do ecossistema
+DTD/SETIS. A classificação orienta priorização de correções, análise de
+tendência e futuras auditorias.
+
+| Nível | Nome | Critério no ecossistema DTD/SETIS |
+|---|---|---|
+| **SEV1** | Crítico | Instrução operacional incorreta ou ausente — agente executa errado por design |
+| **SEV2** | Alto | Dado incorreto em arquivo de referência central (sumario.md, CONTEXTO.md, README) |
+| **SEV3** | Médio | Inconsistência interna sem impacto imediato — detectável apenas por auditoria |
+| **SEV4** | Baixo | Typo, formatação ou metadado menor sem impacto funcional |
+
+**Regra de uso:** ao registrar um novo erro na seção abaixo, incluir
+o campo `**Severidade:**` com o nível SEV correspondente. Erros anteriores
+foram classificados retroativamente na versão v2.5 de 2026-06-05.
+
+---
+
 ## REGISTRO DE ERROS APRENDIDOS
 
 ### Erro #012 — 2026-06-05
+**Severidade:** SEV3
 **Problema:** O ONBOARDING.md não estava coberto pelas verificações pós-execução
 da S04. Após a refatoração de nomenclatura do ecossistema (ecossistema-sumario →
 hub-fonte, dtd-setis → hub-entrada), os campos de metadados do ONBOARDING.md,
@@ -756,6 +777,7 @@ para situações emergentes não antecipadas pelos procedimentos.
 **Status:** Corrigido na v2.4
 
 ### Erro #011 — 2026-06-04
+**Severidade:** SEV4
 **Problema:** A S04 não tinha instrução para capturar ideias embrionárias
 que surgem nas interlinhas das sessões. Boas ideias expressas de forma casual
 ou exploratória durante conversas técnicas se perdiam sem mecanismo de resgate.
@@ -772,6 +794,7 @@ e controle humano na validação. Nenhuma ideia é registrada sem aprovação ex
 **Status:** Corrigido na v2.3
 
 ### Erro #010 — 2026-06-04
+**Severidade:** SEV3
 **Problema:** O ROADMAP.md acumulava drift silencioso para entregáveis não previstos
 originalmente. A S04 só instruía atualizar o ROADMAP quando um item estava previsto
 (marcar ✅) — mas não tinha instrução para incluir itens implementados que nunca
@@ -794,12 +817,14 @@ norma em ecossistemas vivos; o registro retroativo é o que garante rastreabilid
 **Solução:** Checklist OP-P atualizada: o item do README.md agora especifica versão no cabeçalho + estrutura de arquivos + link de navegação rápida.
 **Aprendizado geral:** Ao adicionar qualquer arquivo a um repositório, sempre verificar se o README.md desse repositório precisa refletir a nova estrutura — não apenas status e deliberações.
 **Status:** Corrigido na v1.9
+**Severidade:** SEV3
 
 
 Esta seção é atualizada a cada problema encontrado em operações reais.
 Cada erro vira uma verificação adicional no fluxo desta skill.
 
 ### Erro #009 — 2026-06-03
+**Severidade:** SEV2
 **Problema:** O `README.md` do `hub-entrada` estava com diagrama ASCII e tabela
 de repositórios listando apenas 4 repositórios, enquanto o `sumario.md` registrava
 15 repositórios ativos. O drift acumulou silenciosamente ao longo das Fases 2, 3
@@ -817,6 +842,7 @@ explícita. "Reflete o estado atual" é ambíguo — "bate com o sumario.md" é 
 **Status:** Corrigido na v2.1
 
 ### Erro #001 — 2026-06-01
+**Severidade:** SEV2
 **Problema:** README.md do hub-entrada não foi atualizado ao criar o tipo P
 e o repositório P01. O diagrama ASCII e a tabela de repositórios ficaram
 desatualizados por uma sessão inteira.
@@ -827,6 +853,7 @@ checklist OP-A e é verificado obrigatoriamente na Etapa 6 (Verificação 2).
 
 
 ### Erro #003 — 2026-06-01
+**Severidade:** SEV1
 **Problema:** Chamadas à API GitHub via `curl` com heredoc bash falharam com
 erro "does not match" (HTTP 422) quando o conteúdo dos arquivos continha
 caracteres especiais — acentos, travessões, aspas tipográficas. O bash
@@ -838,6 +865,7 @@ Python urllib com `json.dumps()` para serialização — nunca curl com heredoc.
 Ver padrão de código na Etapa 5 deste SKILL.md.
 
 ### Erro #007 — 2026-06-02
+**Severidade:** SEV2
 **Problema:** Após duas sessões intensas de implementação (criação de tipos W e A,
 migração do Cowork, S06, W02, A01), auditoria externa identificou drifts em
 CONTEXTO.md (versões M01 e S04 desatualizadas), docs/arquitetura.md (não descrevia
@@ -853,6 +881,7 @@ recebe Verificação 5 de consistência cruzada obrigatória após OP-A, OP-B/C
 que mude versão, OP-W e OP-AG.
 
 ### Erro #006 — 2026-06-01
+**Severidade:** SEV3
 **Problema:** Auditoria de cobertura de changelog no OP-P retornou falso
 negativo (⚠️) indicando ausência de instrução de changelog. A leitura
 manual confirmou que a instrução existe e está correta. O erro é reincidência
@@ -866,6 +895,7 @@ para capturar a seção completa antes de verificar presença de termos.
 Nunca buscar em trecho — sempre na seção inteira.
 
 ### Erro #005 — 2026-06-01
+**Severidade:** SEV3
 **Problema:** Script de auditoria da Etapa 6 buscava "backlog" e "changelog"
 nos primeiros 600 caracteres de cada seção OP-X da S04. As checklists
 ficam depois desse limite, fazendo todos os tipos retornarem falso negativo
@@ -878,6 +908,7 @@ seção OP-X completa antes de verificar presença de termos. Ver padrão
 de auditoria corrigido na Etapa 6.
 
 ### Erro #004 — 2026-06-01
+**Severidade:** SEV3
 **Problema:** Script de auditoria de backlogs usava `'## v'` como padrão
 exclusivo de busca de entradas. O repositório `mat-saude-digital-taxonomia` (M02)
 usa `'### v'` como cabeçalho de entrada — nível de subseção em vez de seção.
@@ -891,6 +922,7 @@ explicitamente a aceitar `## v` e `### v` como padrões válidos de entrada.
 Nunca concluir "backlog vazio" sem verificar os dois padrões.
 
 ### Erro #002 — histórico anterior a 2026-06-01
+**Severidade:** SEV2
 **Problema:** Drift de versões — sumário e CONTEXTO.md indicavam versão
 v0.5 do M01 enquanto o backlog já registrava v0.9. Ficou assim por
 várias sessões sem ser detectado.
