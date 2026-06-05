@@ -1,3 +1,26 @@
+## v2.4 — 2026-06-05
+
+**Tipo de alteração:** Atualização
+**Autorizado por:** Victor Leonardo Arimatea Queiroz — Diretor de Transformação Digital
+**Impacto:** non-breaking
+**Skills afetadas:** nenhuma
+**Exposição de motivos:** Três melhorias simultâneas originadas de diagnóstico de
+drift do ONBOARDING.md e da incorporação do princípio de Intenção do Comandante
+ao ecossistema. (1) Seção "Intenção do Comandante" adicionada ao topo da skill —
+declara o estado final desejado e introduz o princípio arbitrador operacional/histórico
+para situações não cobertas pelos procedimentos: texto operacional representa estado
+atual e deve ser corrigido; texto histórico representa estado passado e deve ser
+preservado. (2) ONBOARDING.md adicionado à Verificação 5 como arquivo monitorado.
+(3) IDENTIDADE DO ECOSSISTEMA corrigida para nomenclatura atual. Erro #012 documentado.
+
+### Alterações realizadas
+- Seção "Intenção do Comandante" adicionada antes de IDENTIDADE DO ECOSSISTEMA
+- IDENTIDADE DO ECOSSISTEMA: `ecossistema-sumario` → `hub-fonte`; `dtd-setis` → `hub-entrada`
+- Verificação 5: item 6 adicionado (ONBOARDING.md do hub-fonte — campos Repositório e Versão corretos)
+- Erro #012 registrado na seção de erros aprendidos
+
+---
+
 ## v2.3 — 2026-06-04
 
 **Tipo de alteração:** Atualização
