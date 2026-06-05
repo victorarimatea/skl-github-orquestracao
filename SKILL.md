@@ -1,6 +1,6 @@
 # skill-github-orquestracao
 
-**Versão:** v2.3 — 2026-06-04
+**Versão:** v2.4 — 2026-06-05
 **Repositório:** https://github.com/victorarimatea/skl-github-orquestracao
 **Mantenedor:** victorarimatea
 
@@ -16,11 +16,37 @@ uma verificação adicional nesta skill.
 
 ---
 
+## INTENÇÃO DO COMANDANTE
+
+O estado final desejado de toda operação conduzida por esta skill é um
+ecossistema internamente consistente, auditável e rastreável — onde o que
+existe nos repositórios corresponde ao que está registrado, e o que está
+registrado é verdadeiro para o momento em que foi escrito.
+
+Esta declaração é o árbitro de última instância para qualquer situação
+não coberta pelas etapas desta skill. Quando o agente encontrar uma
+divergência não descrita nos procedimentos, deve perguntar:
+
+**"Esta divergência representa um erro a corrigir, ou um registro
+histórico a preservar?"**
+
+A resposta depende da natureza do documento:
+- **Texto operacional** (README, INDICE, ONBOARDING, CONTEXTO, SKILL.md)
+  descreve o estado *atual* do sistema → divergência é erro, corrigir.
+- **Texto histórico** (CHANGELOG, backlog-versoes, backlog-acoes, logs de
+  execução) descreve o que *aconteceu* em momento específico → a nomenclatura
+  da época é a informação correta, preservar.
+
+A aparência de uma divergência não define sua natureza.
+A natureza do documento é que define a ação correta.
+
+---
+
 ## IDENTIDADE DO ECOSSISTEMA
 
 - **Usuário GitHub:** victorarimatea
-- **Repositório âncora:** ecossistema-sumario
-- **Repositório portfólio:** dtd-setis
+- **Repositório âncora:** hub-fonte
+- **Repositório portfólio:** hub-entrada
 - **URL base raw:** https://raw.githubusercontent.com/victorarimatea/
 - **URL base API:** https://api.github.com/repos/victorarimatea/
 
@@ -456,6 +482,7 @@ que os 5 arquivos centrais estão sincronizados entre si:
 # 3. README.md do hub-entrada lista o repositório na tabela?
 # 4. ROADMAP.md reflete o status real (concluído/em curso/próximo)?
 # 5. docs/arquitetura.md descreve os tipos e relações atuais?
+# 6. ONBOARDING.md do hub-fonte — campos **Repositório:** e **Versão:** corretos?
 ```
 
 **Quando esta verificação é obrigatória:**
@@ -704,6 +731,29 @@ não necessariamente ao final do arquivo.
 ---
 
 ## REGISTRO DE ERROS APRENDIDOS
+
+### Erro #012 — 2026-06-05
+**Problema:** O ONBOARDING.md não estava coberto pelas verificações pós-execução
+da S04. Após a refatoração de nomenclatura do ecossistema (ecossistema-sumario →
+hub-fonte, dtd-setis → hub-entrada), os campos de metadados do ONBOARDING.md,
+INDICE.md e README.md permaneceram com o nome legado por múltiplas sessões sem
+detecção. Adicionalmente, a seção IDENTIDADE DO ECOSSISTEMA da própria S04
+continha os nomes legados dos repositórios âncora e portfólio.
+**Causa raiz:** A Verificação 5 monitorava 5 arquivos centrais (sumario.md,
+CONTEXTO.md, README.md hub-entrada, ROADMAP.md, arquitetura.md), mas não
+incluía o ONBOARDING.md. A S04 também não tinha regra explícita para distinguir
+divergências em texto operacional versus texto histórico — gap que poderia gerar
+correções indevidas em registros imutáveis de backlog/changelog.
+**Solução:** (1) ONBOARDING.md adicionado como item 6 da Verificação 5.
+(2) Seção "Intenção do Comandante" adicionada ao topo da skill com a distinção
+operacional/histórico como princípio arbitrador para situações não cobertas pelos
+procedimentos. (3) IDENTIDADE DO ECOSSISTEMA corrigida para nomenclatura atual
+(hub-fonte, hub-entrada).
+**Aprendizado geral:** Toda refatoração de nomenclatura deve incluir varredura
+explícita em todos os arquivos operacionais do M01 — não apenas nos que fazem
+parte das checklists correntes. A Intenção do Comandante serve como salvaguarda
+para situações emergentes não antecipadas pelos procedimentos.
+**Status:** Corrigido na v2.4
 
 ### Erro #011 — 2026-06-04
 **Problema:** A S04 não tinha instrução para capturar ideias embrionárias
