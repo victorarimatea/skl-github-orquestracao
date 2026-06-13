@@ -2,7 +2,7 @@
 
 **Tipo:** S — Skill
 **ID:** S04
-**Versão:** v2.7 — 2026-06-01
+**Versão:** v2.7 — 2026-06-05
 **Visibilidade:** Público
 **Mantenedor:** victorarimatea
 
@@ -64,7 +64,7 @@ da Secretaria Executiva de Tecnologia da Informação em Saúde (SETIS)
 da Secretaria de Estado de Saúde do Distrito Federal (SES-DF).
 
 Repositório âncora do ecossistema:
-https://github.com/victorarimatea/ecossistema-sumario
+https://github.com/victorarimatea/hub-fonte
 
 ---
 
