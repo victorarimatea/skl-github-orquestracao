@@ -179,7 +179,7 @@ operação específica exigir.
 - [ ] `CONTEXTO.md` — tabela de repositórios atualizada
 - [ ] `backlog-versoes.md` — nova entrada (tipo: Atualização)
 
-**No dtd-setis:**
+**No hub-entrada:**
 - [ ] `CHANGELOG.md` — nova entrada
 
 **Verificação adicional:**
@@ -203,7 +203,7 @@ operação específica exigir.
     verificar que a versão bate com o cabeçalho do arquivo alterado
 - [ ] `backlog-versoes.md` — nova entrada
 
-**No dtd-setis:**
+**No hub-entrada:**
 - [ ] `CHANGELOG.md` — nova entrada se a mudança for relevante
 
 ### OP-D — Geração de documento institucional
@@ -217,7 +217,7 @@ operação específica exigir.
 - [ ] `INDICE.md` — atualizado para refletir o novo artefato em `documentos/`
 - [ ] `backlog-versoes.md` — nova entrada registrando a geração
 
-**No dtd-setis:**
+**No hub-entrada:**
 - [ ] `CHANGELOG.md` — nova entrada se for entrega relevante
 
 ### OP-E — Correção pontual
@@ -257,7 +257,7 @@ operação específica exigir.
 - [ ] `backlog-versoes.md` — nova entrada
 - [ ] Versão do CONTEXTO.md incrementada
 
-**No dtd-setis:**
+**No hub-entrada:**
 - [ ] `CHANGELOG.md` — nova entrada se mudança for substantiva
 
 ### OP-P — Atualização de projeto
@@ -279,7 +279,7 @@ operação específica exigir.
     verificar que o campo de status está correto
 - [ ] `backlog-versoes.md` — nova entrada apenas se o status mudou
 
-**No dtd-setis:**
+**No hub-entrada:**
 - [ ] `projetos/monitoramento.md` — atualizado se a mudança for relevante
   para visibilidade externa (somente mediante autorização explícita)
 
@@ -546,7 +546,7 @@ novo foi criado. Em todos os demais tipos, é obrigatória.
 **Verificação 4 — Glossário:**
 Varrer todos os arquivos criados ou alterados na operação em busca de
 termos técnicos novos que possam não estar definidos no `GLOSSARIO.md`
-do repositório âncora (ecossistema-sumario).
+do repositório âncora (hub-fonte).
 
 **O que constitui um termo candidato ao glossário:**
 - Substantivos técnicos específicos do ecossistema (ex: "drift documental",
@@ -789,7 +789,7 @@ Token pode ser revogado: https://github.com/settings/tokens
 - [ ] `sumario.md` — versão do workflow atualizada se mudou
 - [ ] `backlog-versoes.md` — nova entrada se o status mudou
 
-**No dtd-setis:**
+**No hub-entrada:**
 - [ ] `CHANGELOG.md` — entrada se a mudança for relevante para o histórico público
 - [ ] `ROADMAP.md` — atualizar se o workflow mudou de status (rascunho→ativo,
   ativo→suspenso, etc.) ou se novo workflow foi criado
@@ -813,7 +813,7 @@ Token pode ser revogado: https://github.com/settings/tokens
 **No projeto associado (tipo P), se houver:**
 - [ ] `EXECUCOES.md` — linha adicionada referenciando o arquivo no repositório A
 
-**No dtd-setis:**
+**No hub-entrada:**
 - [ ] `ROADMAP.md` — atualizar se tipo A ganhou nova funcionalidade relevante
 
 **Atenção: indexação cronológica**
